@@ -201,6 +201,9 @@ let route: LocaleVariants<ResolvedPageRoute> = {
 }
 
 function attachRoutes(app: Router) {
+  // TODO support pptx, docx, xlsx, etc
+  // TODO convert pptx, docx, xlsx to pdf using soffice --convert-to pdf
+  // TODO find a way to convert pdf back to pptx, docx
   app.post('/api/compress-pdf', async (req, res) => {
     let form = createUploadForm({
       uploadDir: '/tmp/uploads',
@@ -209,6 +212,11 @@ function attachRoutes(app: Router) {
       maxFiles: 10,
     })
     let [fields, files] = await form.parse(req)
+    // TODO let client select compression setting
+    // TODO use gs to do compression
+    // TODO integrate pdf-password for compression
+    // TODO integrate pdf-password for password support
+    // TODO update pdf-password to support custom compression setting
     console.log(fields, files)
     res.end('ok')
   })
