@@ -1,0 +1,4 @@
+user=node
+host=compress-webapp.cc
+root_dir=/home/node/workspace/github.com/beenotung/compress-webapp
+pm2_name="compress-webapp"
